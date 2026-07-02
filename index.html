@@ -62,11 +62,6 @@
         transform: scale(0.96);
     }
     
-    .btn-primary:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    
     .category-pill.active {
         background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
         color: white;
@@ -135,17 +130,6 @@
 
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 1000px white inset;
-    }
-
-    .error-text {
-        color: #ef4444;
-        font-size: 0.75rem;
-        margin-top: 0.25rem;
-    }
-
-    .input-error {
-        border-color: #ef4444 !important;
-        box-shadow: 0 0 0 4px rgb(239 68 68 / 0.1) !important;
     }
 </style>
 </head>
@@ -287,7 +271,6 @@
                             <div class="text-slate-600">Rating</div>
                         </div>
                     </div>
-                </div>
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80" alt="Shopping" class="rounded-3xl shadow-2xl w-full object-cover h-[400px] lg:h-[500px]">
                     <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden sm:block">
@@ -447,7 +430,7 @@
                     <ul class="space-y-3 text-sm">
                         <li class="flex gap-3">
                             <i class="fa-solid fa-location-dot mt-0.5 text-indigo-400"></i>
-                            <span>Mojokerto, Jawa Timur</span>
+                            <span>Jl. Merdeka No. 123, Jakarta 10110</span>
                         </li>
                         <li class="flex gap-3">
                             <i class="fa-solid fa-phone mt-0.5 text-indigo-400"></i>
@@ -539,7 +522,7 @@
                                 <input type="text" id="accountName" required placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">No HP <span class="text-red-500">*</span></label>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">No HP</label>
                                 <input type="tel" id="accountPhone" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
                             </div>
                             <div>
@@ -547,17 +530,17 @@
                                 <input type="email" id="accountEmail" disabled class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-500 outline-none">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Alamat Lengkap <span class="text-red-500">*</span></label>
-                                <textarea id="accountAddress" required rows="3" placeholder="Jalan, No. Rumah, RT/RW, Kelurahan, Kecamatan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition resize-none"></textarea>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Alamat Lengkap</label>
+                                <textarea id="accountAddress" rows="3" placeholder="Jalan, No. Rumah, RT/RW, Kelurahan, Kecamatan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition resize-none"></textarea>
                             </div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Kota <span class="text-red-500">*</span></label>
-                                    <input type="text" id="accountCity" required placeholder="Jakarta" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
+                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Kota</label>
+                                    <input type="text" id="accountCity" placeholder="Jakarta" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Kode Pos <span class="text-red-500">*</span></label>
-                                    <input type="text" id="accountPostal" required placeholder="12345" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
+                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Kode Pos</label>
+                                    <input type="text" id="accountPostal" placeholder="12345" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
                                 </div>
                             </div>
                         </div>
@@ -569,105 +552,6 @@
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </button>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Required Shipping Info Modal -->
-    <div id="shippingModal" class="hidden fixed inset-0 z-[120] overflow-y-auto">
-        <div class="modal-backdrop fixed inset-0 bg-slate-900/70"></div>
-        <div class="flex min-h-full items-center justify-center p-4">
-            <div class="modal-content relative bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center">
-                            <i class="fa-solid fa-truck-fast text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-2xl font-bold text-slate-900">Lengkapi Data Pengiriman</h2>
-                            <p class="text-sm text-slate-600">Isi data lengkap untuk melanjutkan checkout</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
-                        <div class="flex gap-3">
-                            <i class="fa-solid fa-circle-info text-amber-600 mt-0.5"></i>
-                            <div class="text-sm text-amber-800">
-                                <strong>Data wajib diisi:</strong> Semua field harus dilengkapi untuk memproses pesanan Anda ke WhatsApp. Data akan otomatis tersimpan untuk pembelian selanjutnya.
-                            </div>
-                        </div>
-                    </div>
-
-                    <form id="shippingForm" onsubmit="handleShippingSubmit(event)">
-                        <div class="space-y-4 mb-6">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Nama Penerima <span class="text-red-500">*</span></label>
-                                <input type="text" id="shippingName" required placeholder="Masukkan nama penerima" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
-                                <div id="shippingNameError" class="error-text hidden">Nama penerima wajib diisi</div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">No HP <span class="text-red-500">*</span></label>
-                                <input type="tel" id="shippingPhone" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
-                                <div id="shippingPhoneError" class="error-text hidden">No HP wajib diisi (minimal 10 digit)</div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Alamat Lengkap <span class="text-red-500">*</span></label>
-                                <textarea id="shippingAddress" required rows="3" placeholder="Jalan, No. Rumah, RT/RW, Kelurahan, Kecamatan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition resize-none"></textarea>
-                                <div id="shippingAddressError" class="error-text hidden">Alamat lengkap wajib diisi</div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Kota <span class="text-red-500">*</span></label>
-                                    <input type="text" id="shippingCity" required value="Mojokerto" placeholder="Mojokerto" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
-                                    <div id="shippingCityError" class="error-text hidden">Kota wajib diisi</div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Kode Pos <span class="text-red-500">*</span></label>
-                                    <input type="text" id="shippingPostal" required placeholder="613xx" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
-                                    <div id="shippingPostalError" class="error-text hidden">Kode pos wajib diisi</div>
-                                </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Pilih Kurir <span class="text-red-500">*</span></label>
-                                <select id="shippingCourier" required onchange="updateShippingCost()" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition">
-                                    <option value="">-- Pilih Kurir Pengiriman --</option>
-                                    <option value="JNE">JNE - Rp 15.000 (2-3 hari)</option>
-                                    <option value="J&T">J&T Express - Rp 12.000 (1-2 hari)</option>
-                                    <option value="SiCepat">SiCepat - Rp 14.000 (2-3 hari)</option>
-                                    <option value="AnterAja">AnterAja - Rp 13.000 (2-4 hari)</option>
-                                </select>
-                                <p class="text-xs text-slate-500 mt-1.5">Estimasi ongkir untuk area Mojokerto</p>
-                                <div id="shippingCourierError" class="error-text hidden">Pilih kurir pengiriman</div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Catatan Pesanan <span class="text-slate-400">(Opsional)</span></label>
-                                <textarea id="shippingNotes" rows="2" placeholder="Contoh: Tolong packing bubble wrap, kirim sebelum jam 12, dll" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition resize-none"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Rincian Biaya -->
-                        <div id="costSummary" class="bg-slate-50 rounded-xl p-5 mb-6 border border-slate-200">
-                            <h3 class="font-semibold text-slate-900 mb-3 text-sm">Rincian Biaya</h3>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between text-slate-600">
-                                    <span>Subtotal Produk</span>
-                                    <span id="summarySubtotal">Rp 0</span>
-                                </div>
-                                <div class="flex justify-between text-slate-600">
-                                    <span>Ongkos Kirim</span>
-                                    <span id="summaryShipping">Rp 0</span>
-                                </div>
-                                <div class="border-t border-slate-300 pt-2 mt-2 flex justify-between font-bold text-slate-900">
-                                    <span>Total Estimasi</span>
-                                    <span id="summaryTotal" class="text-lg">Rp 0</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" id="shippingSubmitBtn" class="btn-primary w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-xl">
-                            <i class="fa-brands fa-whatsapp mr-2"></i>Lanjutkan ke WhatsApp
-                        </button>
                     </form>
                 </div>
             </div>
@@ -705,6 +589,32 @@
         </div>
     </div>
 
+    <!-- Payment Method Modal -->
+    <div id="paymentModal" class="hidden fixed inset-0 z-[110] overflow-y-auto">
+        <div class="modal-backdrop fixed inset-0 bg-slate-900/50" onclick="closePaymentModal()"></div>
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div class="modal-content relative bg-white rounded-2xl max-w-md w-full">
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-lg font-bold text-slate-900">Pilih Metode Pembayaran</h3>
+                        <button onclick="closePaymentModal()" class="w-8 h-8 rounded-lg hover:bg-slate-100 flex items-center justify-center transition">
+                            <i class="fa-solid fa-xmark text-slate-600"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="checkoutWhatsApp()" class="btn-primary w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-xl font-semibold shadow-lg shadow-green-500/30 hover:shadow-xl flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Bayar via WhatsApp</span>
+                        </button>
+                        <div class="text-center text-xs text-slate-500 pt-2">
+                            Anda akan diarahkan ke WhatsApp untuk menyelesaikan pembayaran
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Cart Sidebar -->
     <div id="cartSidebar" class="fixed inset-y-0 right-0 z-[100] w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300">
         <div class="flex flex-col h-full">
@@ -717,13 +627,12 @@
             <div id="cartItems" class="flex-1 overflow-y-auto p-5"></div>
             <div class="border-t border-slate-200 p-5">
                 <div class="flex items-center justify-between mb-4">
-                    <span class="text-slate-600">Subtotal:</span>
+                    <span class="text-slate-600">Total:</span>
                     <span id="cartTotal" class="text-2xl font-bold text-slate-900">Rp 0</span>
                 </div>
                 <button id="checkoutBtn" class="btn-primary w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-xl">
                     <i class="fa-solid fa-wallet mr-2"></i>Checkout
                 </button>
-                <p class="text-xs text-slate-500 text-center mt-3">Ongkir akan dihitung saat checkout</p>
             </div>
         </div>
     </div>
@@ -737,19 +646,9 @@
     </div>
 
 <script>
-    // ===== COURIER DATA =====
-    const courierData = {
-        'JNE': { name: 'JNE', cost: 15000, eta: '2-3 hari' },
-        'J&T': { name: 'J&T Express', cost: 12000, eta: '1-2 hari' },
-        'SiCepat': { name: 'SiCepat', cost: 14000, eta: '2-3 hari' },
-        'AnterAja': { name: 'AnterAja', cost: 13000, eta: '2-4 hari' }
-    };
-    let selectedCourier = null;
-    let currentShippingCost = 0;
-
     // ===== USER AUTH SYSTEM =====
     let currentUser = null;
-    let authMode = 'login';
+    let authMode = 'login'; // 'login' or 'register'
 
     function loadUser() {
         const userData = localStorage.getItem('masaji_user');
@@ -836,12 +735,13 @@
                 email: email,
                 phone: phone,
                 address: '',
-                city: 'Mojokerto',
+                city: '',
                 postal: ''
             };
             localStorage.setItem('masaji_user', JSON.stringify(currentUser));
             showToast('Pendaftaran berhasil! Selamat datang ' + name);
         } else {
+            // Simple login - in production use real authentication
             const savedUser = localStorage.getItem('masaji_user');
             if (savedUser) {
                 const user = JSON.parse(savedUser);
@@ -870,11 +770,12 @@
         document.getElementById('accountModal').classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         
+        // Fill form with current user data
         document.getElementById('accountName').value = currentUser.name || '';
         document.getElementById('accountPhone').value = currentUser.phone || '';
         document.getElementById('accountEmail').value = currentUser.email || '';
         document.getElementById('accountAddress').value = currentUser.address || '';
-        document.getElementById('accountCity').value = currentUser.city || 'Mojokerto';
+        document.getElementById('accountCity').value = currentUser.city || '';
         document.getElementById('accountPostal').value = currentUser.postal || '';
     }
 
@@ -1172,6 +1073,7 @@
                         <i class="fa-solid fa-plus text-slate-700"></i>
                     </button>
                 </div>
+            </div>
             <div class="flex items-center justify-between mb-5 pb-5 border-b border-slate-200">
                 <span class="text-slate-600">Subtotal:</span>
                 <span id="subtotalDisplay" class="text-xl font-bold text-slate-900">${formatRupiah(discountedPrice)}</span>
@@ -1321,180 +1223,21 @@
         cartSidebar.classList.add('translate-x-full');
     });
 
-    // ===== CHECKOUT FLOW WITH ADDRESS VALIDATION =====
+    // Checkout Flow
     checkoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
             showToast('Keranjang masih kosong');
             return;
         }
-        
-        // Check if user is logged in
-        if (!currentUser) {
-            showToast('Silakan login terlebih dahulu untuk checkout');
-            cartSidebar.classList.add('translate-x-full');
-            openAuthModal();
-            return;
-        }
-        
-        // Check if shipping data is complete
-        const isShippingComplete = currentUser.phone && 
-                                   currentUser.phone.trim() !== '' && 
-                                   currentUser.address && 
-                                   currentUser.address.trim() !== '' && 
-                                   currentUser.city && 
-                                   currentUser.city.trim() !== '' && 
-                                   currentUser.postal && 
-                                   currentUser.postal.trim() !== '';
-        
-        if (!isShippingComplete) {
-            // Show shipping data modal
-            cartSidebar.classList.add('translate-x-full');
-            openShippingModal();
-        } else {
-            // Proceed directly to WhatsApp
-            proceedToWhatsApp();
-        }
+        document.getElementById('paymentModal').classList.remove('hidden');
     });
 
-    function openShippingModal() {
-        const modal = document.getElementById('shippingModal');
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        
-        // Pre-fill with existing data if available
-        if (currentUser) {
-            document.getElementById('shippingName').value = currentUser.name || '';
-            document.getElementById('shippingPhone').value = currentUser.phone || '';
-            document.getElementById('shippingAddress').value = currentUser.address || '';
-            document.getElementById('shippingCity').value = currentUser.city || 'Mojokerto';
-            document.getElementById('shippingPostal').value = currentUser.postal || '';
-        }
-        
-        // Reset courier selection
-        document.getElementById('shippingCourier').value = '';
-        document.getElementById('shippingNotes').value = '';
-        selectedCourier = null;
-        currentShippingCost = 0;
-        updateCostSummary();
+    function closePaymentModal() {
+        document.getElementById('paymentModal').classList.add('hidden');
     }
 
-    function closeShippingModal() {
-        document.getElementById('shippingModal').classList.add('hidden');
-        document.body.style.overflow = 'auto';
-        clearShippingErrors();
-    }
-
-    function clearShippingErrors() {
-        const fields = ['Name', 'Phone', 'Address', 'City', 'Postal', 'Courier'];
-        fields.forEach(field => {
-            const el = document.getElementById(`shipping${field}`);
-            if (el) el.classList.remove('input-error');
-            const err = document.getElementById(`shipping${field}Error`);
-            if (err) err.classList.add('hidden');
-        });
-    }
-
-    function updateShippingCost() {
-        const courierSelect = document.getElementById('shippingCourier');
-        const selectedValue = courierSelect.value;
-        
-        if (selectedValue && courierData[selectedValue]) {
-            selectedCourier = courierData[selectedValue];
-            currentShippingCost = selectedCourier.cost;
-        } else {
-            selectedCourier = null;
-            currentShippingCost = 0;
-        }
-        
-        updateCostSummary();
-    }
-
-    function updateCostSummary() {
-        const subtotal = cart.reduce((sum, item) => {
-            const price = item.effectivePrice || item.price;
-            return sum + (price * item.qty);
-        }, 0);
-        
-        const total = subtotal + currentShippingCost;
-        
-        document.getElementById('summarySubtotal').textContent = formatRupiah(subtotal);
-        document.getElementById('summaryShipping').textContent = currentShippingCost > 0 ? formatRupiah(currentShippingCost) : 'Rp 0';
-        document.getElementById('summaryTotal').textContent = formatRupiah(total);
-    }
-
-    function validateShippingForm() {
-        clearShippingErrors();
-        let isValid = true;
-        
-        const name = document.getElementById('shippingName').value.trim();
-        const phone = document.getElementById('shippingPhone').value.trim();
-        const address = document.getElementById('shippingAddress').value.trim();
-        const city = document.getElementById('shippingCity').value.trim();
-        const postal = document.getElementById('shippingPostal').value.trim();
-        const courier = document.getElementById('shippingCourier').value;
-        
-        if (!name) {
-            document.getElementById('shippingName').classList.add('input-error');
-            document.getElementById('shippingNameError').classList.remove('hidden');
-            isValid = false;
-        }
-        
-        if (!phone || phone.length < 10) {
-            document.getElementById('shippingPhone').classList.add('input-error');
-            document.getElementById('shippingPhoneError').classList.remove('hidden');
-            isValid = false;
-        }
-        
-        if (!address) {
-            document.getElementById('shippingAddress').classList.add('input-error');
-            document.getElementById('shippingAddressError').classList.remove('hidden');
-            isValid = false;
-        }
-        
-        if (!city) {
-            document.getElementById('shippingCity').classList.add('input-error');
-            document.getElementById('shippingCityError').classList.remove('hidden');
-            isValid = false;
-        }
-        
-        if (!postal || postal.length < 5) {
-            document.getElementById('shippingPostal').classList.add('input-error');
-            document.getElementById('shippingPostalError').classList.remove('hidden');
-            isValid = false;
-        }
-        
-        if (!courier) {
-            document.getElementById('shippingCourier').classList.add('input-error');
-            document.getElementById('shippingCourierError').classList.remove('hidden');
-            isValid = false;
-        }
-        
-        return isValid;
-    }
-
-    function handleShippingSubmit(e) {
-        e.preventDefault();
-        
-        if (!validateShippingForm()) {
-            return;
-        }
-        
-        // Save data to user account
-        currentUser.name = document.getElementById('shippingName').value.trim();
-        currentUser.phone = document.getElementById('shippingPhone').value.trim();
-        currentUser.address = document.getElementById('shippingAddress').value.trim();
-        currentUser.city = document.getElementById('shippingCity').value.trim();
-        currentUser.postal = document.getElementById('shippingPostal').value.trim();
-        currentUser.notes = document.getElementById('shippingNotes').value.trim();
-        
-        localStorage.setItem('masaji_user', JSON.stringify(currentUser));
-        updateAuthUI();
-        
-        closeShippingModal();
-        proceedToWhatsApp();
-    }
-
-    function proceedToWhatsApp() {
+    // WhatsApp Checkout - Updated with user data
+    function checkoutWhatsApp() {
         if (cart.length === 0) {
             alert('Keranjang masih kosong');
             return;
@@ -1505,39 +1248,32 @@
             return `${index + 1}. ${item.name} (${item.qty}x) - ${formatRupiah(price * item.qty)}`;
         }).join('\n');
         
-        const subtotal = cart.reduce((sum, item) => {
+        const total = cart.reduce((sum, item) => {
             const price = item.effectivePrice || item.price;
             return sum + (price * item.qty);
         }, 0);
         
-        const total = subtotal + currentShippingCost;
+        let message = `Halo Masaji Elektronik, saya mau checkout. Ini daftar produk di keranjang saya:\n\n${productList}\n\nTotal: ${formatRupiah(total)}`;
         
-        let message = `Halo Masaji Elektronik, saya mau checkout. Ini daftar produk di keranjang saya:\n\n${productList}\n\n`;
-        message += `*Rincian Biaya:*\n`;
-        message += `Subtotal: ${formatRupiah(subtotal)}\n`;
-        if (currentShippingCost > 0 && selectedCourier) {
-            message += `Ongkos Kirim (${selectedCourier.name}): ${formatRupiah(currentShippingCost)}\n`;
-        }
-        message += `*Total Estimasi: ${formatRupiah(total)}*\n\n`;
-        
-        // Add complete user shipping data
+        // Add user data if logged in and has complete info
         if (currentUser) {
-            message += '*Data Pengiriman:*\n';
-            if (currentUser.name) message += `Nama Penerima: ${currentUser.name}\n`;
-            if (currentUser.phone) message += `No HP: ${currentUser.phone}\n`;
-            if (currentUser.address) message += `Alamat: ${currentUser.address}\n`;
-            if (currentUser.city) message += `Kota: ${currentUser.city}\n`;
-            if (currentUser.postal) message += `Kode Pos: ${currentUser.postal}\n`;
-            if (selectedCourier) message += `Kurir: ${selectedCourier.name} (${selectedCourier.eta})\n`;
-            if (currentUser.notes && currentUser.notes.trim() !== '') {
-                message += `\n*Catatan Pesanan:*\n${currentUser.notes}\n`;
+            let userInfo = '\n\n*Data Pemesan:*';
+            if (currentUser.name) userInfo += `\nNama: ${currentUser.name}`;
+            if (currentUser.phone) userInfo += `\nNo HP: ${currentUser.phone}`;
+            if (currentUser.address) userInfo += `\nAlamat: ${currentUser.address}`;
+            if (currentUser.city) userInfo += `\nKota: ${currentUser.city}`;
+            if (currentUser.postal) userInfo += `\nKode Pos: ${currentUser.postal}`;
+            
+            if (userInfo !== '\n\n*Data Pemesan:*') {
+                message += userInfo;
             }
         }
         
-        message += '\nMohon info cara pembayarannya ya. Terima kasih!';
+        message += '\n\nMohon info cara pembayarannya ya. Terima kasih!';
         
-        const whatsappUrl = `https://wa.me/message/WIXIYKQTYXWRE1?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/message/6288994657745?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
+        closePaymentModal();
     }
 
     // Product Detail Modal
@@ -1570,6 +1306,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star-half-stroke"></i>
                         </div>
                         <span class="text-sm text-slate-600">(4.${Math.floor(Math.random() * 3) + 7}) • 1.${Math.floor(Math.random() * 9)}rb terjual</span>
@@ -1593,7 +1330,7 @@
                         </div>
                         <div class="flex items-center gap-3 text-sm text-slate-700">
                             <i class="fa-solid fa-truck text-indigo-600"></i>
-                            <span>Ongkir mulai dari Rp 12.000</span>
+                            <span>Gratis ongkir untuk pembelian > Rp 100.000</span>
                         </div>
                         <div class="flex items-center gap-3 text-sm text-slate-700">
                             <i class="fa-solid fa-shield text-indigo-600"></i>
