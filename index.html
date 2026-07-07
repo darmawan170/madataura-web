@@ -602,12 +602,9 @@
                         </button>
                     </div>
                     <div class="space-y-3">
-                        <button onclick="checkoutWhatsApp()" class="btn-primary w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-xl font-semibold shadow-lg shadow-green-500/30 hover:shadow-xl flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-xl"></i>
-                            <span>Bayar via WhatsApp</span>
-                        </button>
+<button onclick="checkoutDANA()">Bayar via DANA</button>
                         <div class="text-center text-xs text-slate-500 pt-2">
-                            Anda akan diarahkan ke WhatsApp untuk menyelesaikan pembayaran
+                            Anda akan diarahkan ke Dana untuk menyelesaikan pembayaran
                         </div>
                     </div>
                 </div>
@@ -1237,23 +1234,18 @@
     }
 
     // WhatsApp Checkout - Updated with user data
-    function checkoutWhatsApp() {
-        if (cart.length === 0) {
-            alert('Keranjang masih kosong');
-            return;
-        }
-        
-        const productList = cart.map((item, index) => {
-            const price = item.effectivePrice || item.price;
-            return `${index + 1}. ${item.name} (${item.qty}x) - ${formatRupiah(price * item.qty)}`;
-        }).join('\n');
-        
-        const total = cart.reduce((sum, item) => {
-            const price = item.effectivePrice || item.price;
-            return sum + (price * item.qty);
-        }, 0);
-        
-        let message = `Halo Masaji Elektronik, saya mau checkout. Ini daftar produk di keranjang saya:\n\n${productList}\n\nTotal: ${formatRupiah(total)}`;
+    function checkoutDANA() {
+    const total = 849000; // nanti otomatis ngambil total keranjang
+    const nomorDANA = "08123456789"; // GANTI NOMOR DANA KAMU
+    const pesan = `Halo, saya mau bayar pesanan Rp ${total}`;
+    
+    // Buka aplikasi DANA langsung
+    window.location.href = `https://link.dana.id/qr/${nomorDANA}`;
+    
+    // Atau copy nomor + total ke clipboard
+    navigator.clipboard.writeText(`${nomorDANA} - Rp ${total}`);
+    alert('Nomor DANA + Total udah di-copy! Tinggal paste di aplikasi DANA');
+}
         
         // Add user data if logged in and has complete info
         if (currentUser) {
