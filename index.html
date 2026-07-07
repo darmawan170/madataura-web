@@ -25,7 +25,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Masaji Elektronik - Katalog Produk Modern</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com">
+    // Function Bayar via DANA
+    function checkoutDANA() {
+        if (cart.length === 0) {
+            showToast('Keranjang masih kosong!');
+            return;
+        }
+        
+        // Hitung total
+        let total = 0;
+        cart.forEach(item => {
+            const product = products.find(p => p.id === item.id);
+            let price = product.price;
+            if (product.isPromo) {
+                price = price - (price * product.promoDiscount / 100);
+            }
+            total += price * item.qty;
+        });
+        
+        // GANTI NOMOR DANA KAMU DI SINI
+        const nomorDANA = "085174342271"; 
+        const namaToko = "ajicell";
+        
+        // Copy ke clipboard
+        const teksCopy = `Transfer DANA ke: ${085174342271}
+Atas nama: ${AjiCell}
+Total: Rp ${total.toLocaleString('id-ID')}`;
+        navigator.clipboard.writeText(teksCopy);
+        
+        showToast('Nomor DANA + Total udah di-copy! Buka aplikasi DANA ya');
+        
+        // Buka DANA kalau di HP
+        setTimeout(() => {
+            window.location.href = `https://link.dana.id/`;
+        }, 1000);
+    }
+    
+    // Function format rupiah
+    function formatRupiah(angka) {
+        return 'Rp ' + angka.toLocaleString('id-ID');
+    }
+
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -602,9 +644,13 @@
                         </button>
                     </div>
                     <div class="space-y-3">
-<button onclick="checkoutDANA()">Bayar via DANA</button>
+                        <button onclick="checkoutWhatsApp()" class="bg-green-500 hover:bg-green-600">Chat WhatsApp</button>
+                <button onclick="checkoutDANA()" class="bg-blue-600 hover:bg-blue-700 w-full mt-2 text-white py-3 px-4 rounded-lg font-bold transition class="btn-primary w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-xl font-semibold shadow-lg shadow-green-500/30 hover:shadow-xl flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Bayar via WhatsApp</span>
+                        </button>
                         <div class="text-center text-xs text-slate-500 pt-2">
-                            Anda akan diarahkan ke Dana untuk menyelesaikan pembayaran
+                            Anda akan diarahkan ke WhatsApp untuk menyelesaikan pembayaran
                         </div>
                     </div>
                 </div>
@@ -1234,18 +1280,23 @@
     }
 
     // WhatsApp Checkout - Updated with user data
-    function checkoutDANA() {
-    const total = 849000; // nanti otomatis ngambil total keranjang
-    const nomorDANA = "08123456789"; // GANTI NOMOR DANA KAMU
-    const pesan = `Halo, saya mau bayar pesanan Rp ${total}`;
-    
-    // Buka aplikasi DANA langsung
-    window.location.href = `https://link.dana.id/qr/${nomorDANA}`;
-    
-    // Atau copy nomor + total ke clipboard
-    navigator.clipboard.writeText(`${nomorDANA} - Rp ${total}`);
-    alert('Nomor DANA + Total udah di-copy! Tinggal paste di aplikasi DANA');
-}
+    function checkoutWhatsApp() {
+        if (cart.length === 0) {
+            alert('Keranjang masih kosong');
+            return;
+        }
+        
+        const productList = cart.map((item, index) => {
+            const price = item.effectivePrice || item.price;
+            return `${index + 1}. ${item.name} (${item.qty}x) - ${formatRupiah(price * item.qty)}`;
+        }).join('\n');
+        
+        const total = cart.reduce((sum, item) => {
+            const price = item.effectivePrice || item.price;
+            return sum + (price * item.qty);
+        }, 0);
+        
+        let message = `Halo Masaji Elektronik, saya mau checkout. Ini daftar produk di keranjang saya:\n\n${productList}\n\nTotal: ${formatRupiah(total)}`;
         
         // Add user data if logged in and has complete info
         if (currentUser) {
