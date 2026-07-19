@@ -1,7 +1,7 @@
 {
   "name": "MUHAMMAD AJI DARMAWAN",
   "title": "Web Developer & Designer",
-  "photo": "madataura_electro_logo_cutout.png",
+  "photo": "madataura_electro_logo_cutout",
   "about": "Halo! Saya seorang developer yang suka bikin website cepat, bersih, dan enak dilihat. Fokus di frontend tapi juga ngerti backend dasar.",
   "skills": ["HTML", "CSS", "JavaScript", "React", "Tailwind", "Node.js"],
   "contact": {
