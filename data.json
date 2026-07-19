@@ -1,0 +1,12 @@
+{
+  "name": "Nama Kamu",
+  "title": "Web Developer & Designer",
+  "photo": "https://via.placeholder.com/120",
+  "about": "Halo! Saya seorang developer yang suka bikin website cepat, bersih, dan enak dilihat. Fokus di frontend tapi juga ngerti backend dasar.",
+  "skills": ["HTML", "CSS", "JavaScript", "React", "Tailwind", "Node.js"],
+  "contact": {
+    "email": "kamu@email.com",
+    "github": "github.com/namakamu",
+    "linkedin": "linkedin.com/in/namakamu"
+  }
+}
